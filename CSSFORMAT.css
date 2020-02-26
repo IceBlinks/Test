@@ -1,0 +1,27 @@
+body {
+  background-image: url("Billed1.jpg");
+}
+
+img{
+	width: 100%;
+	}
+
+#content {
+		width: 50%;
+		margin: auto;
+		 }
+		
+#text {
+		background-color: blue;
+      }
+
+#list {
+		background-color: red;
+      }
+	  
+#button1{
+	width: 100%;
+        }
+
+
+
