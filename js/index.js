@@ -33,11 +33,7 @@ var ConnDeviceId;
 var deviceList =[];
  
 function onLoad(){
-	document.addEventListener('deviceready', onDeviceReady, false);
-    bleDeviceList.addEventListener('touchstart', conn, false); // assume not scrolling
-}
-
-function onDeviceReady(){
+	document.addEventListener('deviceready', onDeviceReady, function(){
 	// Check if device supports fingerprint
 /**
 * @return {
@@ -93,7 +89,14 @@ FingerprintAuth.isAvailable(function (result) {
 */
 }, function (message) {
     console.log("isAvailableError(): " + message);
-});
+});	
+		
+	} false);
+    bleDeviceList.addEventListener('touchstart', conn, false); // assume not scrolling
+}
+
+function onDeviceReady(){
+	refreshDeviceList();
 	
 }
 
