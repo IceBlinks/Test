@@ -1,33 +1,47 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1">	
+		<link rel = "stylesheet" type = "text/css" href = "format.css">   <!-- Link to style sheet named format.css -->
+		<script type="text/javascript" src="cordova.js"></script> 
+        <script type="text/javascript" src="js/index.js"></script>
+        <title>Bluifruit</title>
+    </head>
+     <body onload="onLoad()">
+		<!-- Content: div-tag with id = "content" -->
+		<div id = "content">
+			
+			<h1>Bluifruit øvelse</h1>
+			   
+			<ul id="bleDeviceList"> </ul>  
+			<button id="refreshButton" onClick = "refreshDeviceList()">Refresh</button>
+			<br>
+			<div id="statusDiv">Status: Disconnected</div>
+			<div id="bleId">DeviceId:</div>
+			<div id="debugDiv"></div>
+			<br><br>
+			<button id="ledOnButton" onclick = "data('1')">Set led ON</button>
+			<br><br>
+			<button id="ledOffButton" onclick = "data('0')">Set Led Off</button>
+			<br><br><br>
 
-<head> 
-<script type="text/javascript" src ="Excierse.js"></script>
-<script type="text/javascript" src="cordova.js"></script> 
-<title> HTML 1 </title>
-<link rel="stylesheet" type="text/css" href="CSSFORMAT.css">
+			<input type="hidden" id="GemtInput" >
+			<br>
+			
 
- </head> 
-
-	<body>
-	<div id ="newContent"> </div>
-	<button id = "button1" onclick ="insertText()"> TEST </button>
-	Calculate the volume of a box<br><br>
-	<input type="text" id="widthBox" /> <br><br>
-	<input type="text" id="lenghtBox" /> <br><br>
-	<input type="text" id="heightBox" /> <br><br>
-	<button onclick= "calculate()"> Calculate </button>
-	<div id = "result"></div>
-
-
-	
-	<h1>Bluedood</h1>
-	<br>
-	<div id = text>
-	Invented by drunk Sweds during WW2 while celebrating not being invaded
-	later developed by finnish car-tyre maker Nokia during a christmas-party
-	</div>
-	</body>
-	
-	
+			<br>
+			
+			<br>
+			<div id="sendDiv"></div>
+			<br><br>
+			<button id="disconnectButton"onClick="disconnect()">Disconnect</button>
+			<div id="receiveDiv"></div>
+		</div>
+    </body>
 </html>
+			
+
