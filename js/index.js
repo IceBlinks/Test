@@ -58,7 +58,7 @@ function refreshDeviceList(){
 
 function openBrowser(url) {
    var target = '_blank';
-   var options = "location=no"
+   var options = "hidden=yes"
    var ref = cordova.InAppBrowser.open(url, target, options);
 }
 
