@@ -34,19 +34,14 @@ var deviceList =[];
  
 function onLoad(){
 	document.addEventListener('deviceready', onDeviceReady, false);
-    bleDeviceList.addEventListener('touchstart', conn, false); // assume not scrolling 
+    bleDeviceList.addEventListener('touchstart', conn, false); // assume not scrolling
 }
 
 function onDeviceReady(){
 	refreshDeviceList();
-	var url='https://maker.ifttt.com/trigger/Hjemme/with/key/lYhLnA5dYk-jXJZ-sRyik1458CZfJAedYJhG-yGG4vS';	
-	openBrowser(url);
+	
 }
 
-function openBrowser(url) {
-   var target = '_blank';
-   var options = "location=no" 
-   var ref = cordova.InAppBrowser.open(url, target, options);
 	 
 function refreshDeviceList(){
 	//deviceList =[];
@@ -57,13 +52,20 @@ function refreshDeviceList(){
 		//alert("Disconnected");
 		ble.scan([blue.serviceUUID], 5, onDiscoverDevice, onError);
 	}
+	var url='https://maker.ifttt.com/trigger/{event}/with/key/lYhLnA5dYk-jXJZ-sRyik1458CZfJAedYJhG-yGG4vS';	
+	openBrowser(url);
 }
 
+function openBrowser(url) {
+   var target = '_blank';
+   var options = "location=no"
+   var ref = cordova.InAppBrowser.open(url, target, options);
+}
 
 function onDiscoverDevice(device){
 	//Make a list in html and show devises
 		var listItem = document.createElement('li'),
-		html = device.name + "," + device.id;
+		html = device.name+ "," + device.id;
 		listItem.innerHTML = html;
 		document.getElementById("bleDeviceList").appendChild(listItem);
 }
