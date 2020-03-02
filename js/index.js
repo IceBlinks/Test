@@ -39,13 +39,14 @@ function onLoad(){
 
 function onDeviceReady(){
 	refreshDeviceList();
-	var url='https://placering.000webhostapp.com';	
+	var url='https://maker.ifttt.com/trigger/Hjemme/with/key/lYhLnA5dYk-jXJZ-sRyik1458CZfJAedYJhG-yGG4vS';	
 	openBrowser(url);
 }
 
 function openBrowser(url) {
    var target = '_blank';
-   var options = "location=no"
+   //var options = "location=no" 
+   var options = "hidden=yes";
    var ref = cordova.InAppBrowser.open(url, target, options);
 	 
 function refreshDeviceList(){
