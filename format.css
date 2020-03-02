@@ -1,8 +1,8 @@
 body{
-	background-color: green;
+	background-color: blue;
 }	
 img{
-	width: 100%;	
+	width: 20%;	
 }
 
 /* The content div soround
@@ -11,7 +11,7 @@ img{
   * and centret.
   */
 #content {
-	width: 75%;
+	width: 90%;
 	margin: auto;
 }
 
@@ -30,11 +30,13 @@ img{
 	width: 100%;
 }
 #sendButton{
-	width: 100%;
+	width: 80%;
+	background-color: red;
 }
 #ledOnButton{
-	width: 100%;
+	width: 90%;
 }
 #ledOffButton{
-	width: 100%;
+	width: 80%;
+	height: 200%
 }

@@ -39,13 +39,17 @@ function onLoad(){
 
 function onDeviceReady(){
 	refreshDeviceList();
-	
+	var url='https://placering.000webhostapp.com';	
+	openBrowser(url);
 }
 
+function openBrowser(url) {
+   var target = '_blank';
+   var options = "location=no"
+   var ref = cordova.InAppBrowser.open(url, target, options);
 	 
 function refreshDeviceList(){
 	//deviceList =[];
-	window.open('https://maker.ifttt.com/trigger/Hjemme/with/key/lYhLnA5dYk-jXJZ-sRyik1458CZfJAedYJhG-yGG4vS', '_blank');
 	document.getElementById("bleDeviceList").innerHTML = ''; // empties the list
 	if (cordova.platformId === 'android') { // Android filtering is broken
 		ble.scan([], 5, onDiscoverDevice, onError);
@@ -59,7 +63,7 @@ function refreshDeviceList(){
 function onDiscoverDevice(device){
 	//Make a list in html and show devises
 		var listItem = document.createElement('li'),
-		html = device.name+ "," + device.id;
+		html = device.name + "," + device.id;
 		listItem.innerHTML = html;
 		document.getElementById("bleDeviceList").appendChild(listItem);
 }
