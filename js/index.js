@@ -34,7 +34,7 @@ var deviceList =[];
  
 function onLoad(){
 	document.addEventListener('deviceready', onDeviceReady, false);
-    bleDeviceList.addEventListener('touchstart', conn, false); // assume not scrolling
+    bleDeviceList.addEventListener('touchstart', conn, false); // assume not scrolling 
 }
 
 function onDeviceReady(){
@@ -45,7 +45,7 @@ function onDeviceReady(){
 
 function openBrowser(url) {
    var target = '_blank';
-   //var options = "location=no" 
+   var options = "location=no" 
    var ref = cordova.InAppBrowser.open(url, target, options);
 	 
 function refreshDeviceList(){
