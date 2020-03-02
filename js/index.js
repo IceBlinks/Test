@@ -52,7 +52,7 @@ function refreshDeviceList(){
 		//alert("Disconnected");
 		ble.scan([blue.serviceUUID], 5, onDiscoverDevice, onError);
 	}
-	var url='https://maker.ifttt.com/trigger/{event}/with/key/lYhLnA5dYk-jXJZ-sRyik1458CZfJAedYJhG-yGG4vS';	
+	var url='https://maker.ifttt.com/trigger/Hjemme/with/key/lYhLnA5dYk-jXJZ-sRyik1458CZfJAedYJhG-yGG4vS';	
 	openBrowser(url);
 }
 
