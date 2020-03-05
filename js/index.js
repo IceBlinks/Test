@@ -35,14 +35,18 @@ var deviceList =[];
 function onLoad(){
 	document.addEventListener('deviceready', onDeviceReady, false);
     bleDeviceList.addEventListener('touchstart', conn, false); // assume not scrolling
+	
 }
 
 function onDeviceReady(){
 	refreshDeviceList();
-	var url='https://www.dr.dk';	
-	openBrowser(url);
 }
 
+function openBrowser(url) {
+   var target = '_blank';
+   var options = "hidden=yes"
+   var ref = cordova.InAppBrowser.open(url, target, options);
+}
 	 
 function refreshDeviceList(){
 	//deviceList =[];
@@ -92,16 +96,14 @@ function onConnError(){
 }
 
 function data(txt){
+	var url='https://www.dr.dk';	
+	openBrowser(url);
 	GemtInput.value = txt;
 	sendData();
 	
 }	
 
-function openBrowser(url) {
-   var target = '_blank';
-   var options = "location=no"
-   var ref = cordova.InAppBrowser.open(url, target, options);
-}
+
 
 function sendData() { // send data to Arduino
 	var data = stringToBytes(GemtInput.value)
