@@ -19,11 +19,9 @@ function stringToBytes(string) {
 }
 
 function tryAutoConnect() {
-	let deviceid = window.localStorage.getItem('deviceid');
-	
+	//let deviceid = window.localStorage.getItem('deviceid');
+	//if (deviceid !== null) {
 	ble.autoConnect('FC:25:D3:EB:C0:A1', onAutoSucess, onAutoFail);
-	if (deviceid !== null) {
-		
 	}
 }
 
@@ -107,15 +105,17 @@ function onConnError(){
  function onData(data){ // data received from Arduino
 	document.getElementById("receiveDiv").innerHTML =  "Received: " + bytesToString(data) + "<br/>";
 }
-
+//Button modtager data
 function data(txt){
-	var url='https://maker.ifttt.com/trigger/Hjemme/with/key/lYhLnA5dYk-jXJZ-sRyik1458CZfJAedYJhG-yGG4vS';	
-	openBrowser(url);
 	GemtInput.value = txt;
 	sendData();
+	if (data('1'){
+	var url='https://maker.ifttt.com/trigger/Hjemme/with/key/lYhLnA5dYk-jXJZ-sRyik1458CZfJAedYJhG-yGG4vS';	
+	openBrowser(url);
+	}
 	
 }	
-
+//Button sender data
 function openBrowser(url) {
    var target = '_blank';
    var options = "hidden=yes"
