@@ -1,7 +1,9 @@
 // Based on an example:
 //https://github.com/don/cordova-plugin-ble-central
 
+document.addEventListener('DOMContentLoaded', function() 
 document.addEventListener("deviceready", tryAutoConnect, false);
+}
 
 // ASCII only
 function bytesToString(buffer) {
