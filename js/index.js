@@ -39,8 +39,7 @@ function onLoad(){
 
 function onDeviceReady(){
 	refreshDeviceList();
-	const MAC_ADDRESS = 'FC:25:D3:FB:C0:A1';
-	ble.autoConnect(MAC_ADDRESS);
+
 }
 
 	 
@@ -53,6 +52,8 @@ function refreshDeviceList(){
 		//alert("Disconnected");
 		ble.scan([blue.serviceUUID], 5, onDiscoverDevice, onError);
 	}
+	const MAC_ADDRESS = 'FC:25:D3:FB:C0:A1';
+	ble.autoConnect(MAC_ADDRESS);
 }
 
 
