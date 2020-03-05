@@ -18,12 +18,13 @@ function stringToBytes(string) {
 }
 
 function tryAutoConnect() {
+	let lul = 'FC:25:D3:FB:C0:A1';
+	ble.autoConnect(lul, onAutoSucess, onAutoFail);
 	let deviceid = window.localStorage.getItem('deviceid');
 	
 	if (deviceid !== null) {
 	
 	}
-	ble.autoConnect('FC:25:D3:FB:C0:A1', onAutoSucess, onAutoFail);
 }
 
 function onAutoSucess() {
@@ -58,7 +59,7 @@ function onDeviceReady(){
 
 }
 
-	 
+	 /*
 function refreshDeviceList(){
 	//deviceList =[];
 	document.getElementById("bleDeviceList").innerHTML = ''; // empties the list
@@ -69,7 +70,7 @@ function refreshDeviceList(){
 		ble.scan([blue.serviceUUID], 5, onDiscoverDevice, onError);
 	}
 }
-
+*/
 
 function onDiscoverDevice(device){
 	//Make a list in html and show devises
