@@ -15,19 +15,16 @@
 		<!-- Content: div-tag with id = "content" -->
 		<div id = "content">
 			
-			<h1>Bluifruit øvelse</h1>
+			
 			   
 			<ul id="bleDeviceList"> </ul>  
 			<button id="refreshButton" onClick = "refreshDeviceList()">Forbind</button>
 			<br>
-			<div id="statusDiv">Status: Disconnected</div>
-			<div id="bleId">DeviceId:</div>
+			
 			<div id="debugDiv"></div>
 			<br><br>
 			<button id="ledOnButton" onclick = "data('1')">Åben dør</button>
-			<br><br>
-			<button id="ledOffButton" onclick = "data('0')">Set Led Off</button>
-			<br><br><br>
+			
 
 			<input type="hidden" id="GemtInput" >
 			<br>
@@ -38,7 +35,6 @@
 			<br>
 			<div id="sendDiv"></div>
 			<br><br>
-			<button id="disconnectButton"onClick="disconnect()">Disconnect</button>
 			<div id="receiveDiv"></div>
 		</div>
     </body>

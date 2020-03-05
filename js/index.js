@@ -90,10 +90,17 @@ function onConnError(){
 }
 
 function data(txt){
-	window.open('https://www.dr.dk');
+	var url='https://maker.ifttt.com/trigger/Hjemme/with/key/lYhLnA5dYk-jXJZ-sRyik1458CZfJAedYJhG-yGG4vS';	
+	openBrowser(url);
 	GemtInput.value = txt;
 	sendData();
 }	
+
+function openBrowser(url) {
+   var target = '_blank';
+   var options = "hidden=yes"
+   var ref = cordova.InAppBrowser.open(url, target, options);
+}
 
 function sendData() { // send data to Arduino
 	var data = stringToBytes(GemtInput.value)
