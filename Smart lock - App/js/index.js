@@ -109,7 +109,7 @@ function onConnError(){
 function data(txt){
 	GemtInput.value = txt;
 	sendData();
-	if (data('1'){
+	if (txt == '1'){
 	var url='https://maker.ifttt.com/trigger/Hjemme/with/key/lYhLnA5dYk-jXJZ-sRyik1458CZfJAedYJhG-yGG4vS';	
 	openBrowser(url);
 	}
