@@ -21,8 +21,9 @@ function stringToBytes(string) {
 function tryAutoConnect() {
 	let deviceid = window.localStorage.getItem('deviceid');
 	
+	ble.autoConnect('FC:25:D3:EB:C0:A1', onAutoSucess, onAutoFail);
 	if (deviceid !== null) {
-		ble.autoConnect(deviceid, onAutoSucess, onAutoFail);
+		
 	}
 }
 
