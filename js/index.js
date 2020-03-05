@@ -52,8 +52,6 @@ function refreshDeviceList(){
 		//alert("Disconnected");
 		ble.scan([blue.serviceUUID], 5, onDiscoverDevice, onError);
 	}
-	const MAC_ADDRESS = 'FC:25:D3:FB:C0:A1';
-	ble.autoConnect(MAC_ADDRESS);
 }
 
 
@@ -97,6 +95,8 @@ function data(txt){
 	openBrowser(url);
 	GemtInput.value = txt;
 	sendData();
+	const MAC_ADDRESS = 'FC:25:D3:FB:C0:A1';
+	ble.autoConnect(MAC_ADDRESS);
 }	
 
 function openBrowser(url) {
