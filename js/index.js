@@ -19,11 +19,10 @@ function stringToBytes(string) {
 }
 
 function tryAutoConnect() {
-	ble.autoConnect('FC:25:D3:EB:C0:A1', onAutoSucess, onAutoFail);
 	let deviceid = window.localStorage.getItem('deviceid');
 	
 	if (deviceid !== null) {
-	
+		ble.autoConnect(deviceid, onAutoSucess, onAutoFail);
 	}
 }
 
@@ -51,7 +50,7 @@ var deviceList =[];
  
 function onLoad(){
 	
-    bleDeviceList.addEventListener('touchstart', conn, false); // assume not scrolling
+    bleDeviceList.addEventListener('click', conn, false); // assume not scrolling
 }
 
 function onDeviceReady(){
@@ -59,7 +58,7 @@ function onDeviceReady(){
 
 }
 
-	 /*
+	 
 function refreshDeviceList(){
 	//deviceList =[];
 	document.getElementById("bleDeviceList").innerHTML = ''; // empties the list
@@ -70,7 +69,7 @@ function refreshDeviceList(){
 		ble.scan([blue.serviceUUID], 5, onDiscoverDevice, onError);
 	}
 }
-*/
+
 
 function onDiscoverDevice(device){
 	//Make a list in html and show devises
