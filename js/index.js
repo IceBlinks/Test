@@ -1,6 +1,7 @@
 // Based on an example:
 //https://github.com/don/cordova-plugin-ble-central
 
+document.addEventListener("deviceready", tryAutoConnect, false);
 
 // ASCII only
 function bytesToString(buffer) {
@@ -16,6 +17,20 @@ function stringToBytes(string) {
     return array.buffer;
 }
 
+function tryAutoConnect() {
+	let deviceid = window.localStorage.getItem('deviceid');
+	
+	if (deviceid !== null) {
+	ble.autoConnect('FC:25:D3:FB:C0:A1', onAutoSucess, onAutoFail);
+	}
+}
+
+function onAutoSucess() {
+	
+}
+
+function onAutoFail() {
+}
 // this is ble hm-10 UART service
 /*var blue= {
     serviceUUID: "0000FFE0-0000-1000-8000-00805F9B34FB",
@@ -33,7 +48,7 @@ var ConnDeviceId;
 var deviceList =[];
  
 function onLoad(){
-	document.addEventListener('deviceready', onDeviceReady, false);
+	
     bleDeviceList.addEventListener('touchstart', conn, false); // assume not scrolling
 }
 
@@ -69,6 +84,7 @@ function conn(){
 	document.getElementById("debugDiv").innerHTML =""; // empty debugDiv
 	var deviceTouchArr = deviceTouch.split(",");
 	ConnDeviceId = deviceTouchArr[1];
+	window.localStorage.setItem('deviceid', ConnDeviceId);
 	//document.getElementById("debugDiv").innerHTML += "<br>"+deviceTouchArr[0]+"<br>"+deviceTouchArr[1]; //for debug:
 	ble.connect(ConnDeviceId, onConnect, onConnError);
  }
@@ -95,8 +111,7 @@ function data(txt){
 	openBrowser(url);
 	GemtInput.value = txt;
 	sendData();
-	const MAC_ADDRESS = 'FC:25:D3:FB:C0:A1';
-	ble.autoConnect(MAC_ADDRESS);
+	
 }	
 
 function openBrowser(url) {
