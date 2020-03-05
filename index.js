@@ -46,7 +46,6 @@ function onDeviceReady(){
 
 	 
 function refreshDeviceList(){
-	window.open('https://maker.ifttt.com/trigger/Notifcation_IoT2/with/key/nEPK7gnJZPTRBi6vAu5vBHATOrP2uxtpu8o1QYWkP8T', '_blank');
 	//deviceList =[];
 	document.getElementById("bleDeviceList").innerHTML = ''; // empties the list
 	if (cordova.platformId === 'android') { // Android filtering is broken
