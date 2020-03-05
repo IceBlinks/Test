@@ -35,13 +35,12 @@ var deviceList =[];
 function onLoad(){
 	document.addEventListener('deviceready', onDeviceReady, false);
     bleDeviceList.addEventListener('touchstart', conn, false); // assume not scrolling
-	var url='https://www.dr.dk';	
-	openBrowser(url);
 }
 
 function onDeviceReady(){
 	refreshDeviceList();
-	
+	var url='https://www.dr.dk';	
+	openBrowser(url);
 }
 
 	 
