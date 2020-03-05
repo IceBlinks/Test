@@ -1,9 +1,8 @@
 // Based on an example:
 //https://github.com/don/cordova-plugin-ble-central
 
-document.addEventListener('DOMContentLoaded', function() 
-document.addEventListener('deviceready', tryAutoConnect, false);
-}
+document.addEventListener("deviceready", tryAutoConnect, false);
+
 
 // ASCII only
 function bytesToString(buffer) {
@@ -20,8 +19,7 @@ function stringToBytes(string) {
 }
 
 function tryAutoConnect() {
-	let lul = 'FC:25:D3:FB:C0:A1';
-	ble.autoConnect(lul, onAutoSucess, onAutoFail);
+	ble.autoConnect('FC:25:D3:EB:C0:A1', onAutoSucess, onAutoFail);
 	let deviceid = window.localStorage.getItem('deviceid');
 	
 	if (deviceid !== null) {
