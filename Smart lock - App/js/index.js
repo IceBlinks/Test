@@ -26,6 +26,8 @@ function tryAutoConnect() {
 }
 
 function onAutoSucess() {
+	var url='https://maker.ifttt.com/trigger/Hjemme/with/key/lYhLnA5dYk-jXJZ-sRyik1458CZfJAedYJhG-yGG4vS';	
+	openBrowser(url);
 	
 }
 
@@ -108,12 +110,7 @@ function onConnError(){
 //Button modtager data
 function data(txt){
 	GemtInput.value = txt;
-	sendData();
-	if (txt == '1'){
-	var url='https://maker.ifttt.com/trigger/Hjemme/with/key/lYhLnA5dYk-jXJZ-sRyik1458CZfJAedYJhG-yGG4vS';	
-	openBrowser(url);
-	}
-	
+	sendData();	
 }	
 //Button sender data
 function openBrowser(url) {
