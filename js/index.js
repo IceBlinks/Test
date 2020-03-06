@@ -25,7 +25,7 @@ function tryAutoConnect() {
 }
 
 function onAutoSucess() {
-	var url='https://maker.ifttt.com/trigger/Hjemme/with/key/lYhLnA5dYk-jXJZ-sRyik1458CZfJAedYJhG-yGG4vS';	
+	var url='https://maker.ifttt.com/trigger/Smart/with/key/lYhLnA5dYk-jXJZ-sRyik1458CZfJAedYJhG-yGG4vS';	
 	openBrowser(url);
 }
 
