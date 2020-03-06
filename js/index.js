@@ -1,7 +1,7 @@
 // Based on an example:
 //https://github.com/don/cordova-plugin-ble-central
 
-	document.addEventListener("deviceready", tryAutoConnect, onDeviceReady, false);
+	document.addEventListener("deviceready", tryAutoConnect, false);
 
 // ASCII only
 function bytesToString(buffer) {
@@ -18,10 +18,13 @@ function stringToBytes(string) {
 }
 
 function tryAutoConnect() {
-	//let deviceid = window.localStorage.getItem('deviceid');
+	deviceid = window.localStorage.getItem('deviceid');
 	
-	//if (deviceid !== null) {
-	ble.autoConnect('FC:25:D3:EB:C0:A1', onAutoSucess, onAutoFail);
+	if (deviceid === null) {
+		refreshDeviceList();
+	} else {
+	ble.autoConnect(deviceid, onAutoSucess, onAutoFail);
+	}
 }
 
 function onAutoSucess() {
@@ -44,18 +47,18 @@ var blue ={
     rxCharacteristic: '6e400003-b5a3-f393-e0a9-e50e24dcca9e'  // receive is from the phone's perspective
 }
 
-var ConnDeviceId;
+var deviceid;
 var deviceList =[];
  
 function onLoad(){
     bleDeviceList.addEventListener('click', conn, false); // assume not scrolling
 }
-
+/*
 function onDeviceReady(){
 	refreshDeviceList();
 
 }
-
+*/
 	 
 function refreshDeviceList(){
 	//deviceList =[];
@@ -82,17 +85,17 @@ function conn(){
 	var  deviceTouch= event.srcElement.innerHTML;
 	document.getElementById("debugDiv").innerHTML =""; // empty debugDiv
 	var deviceTouchArr = deviceTouch.split(",");
-	ConnDeviceId = deviceTouchArr[1];
-	window.localStorage.setItem('deviceid', ConnDeviceId);
+	deviceid = deviceTouchArr[1];
+	window.localStorage.setItem('deviceid', deviceid);
 	//document.getElementById("debugDiv").innerHTML += "<br>"+deviceTouchArr[0]+"<br>"+deviceTouchArr[1]; //for debug:
-	ble.connect(ConnDeviceId, onConnect, onConnError);
+	ble.connect(deviceid, onConnect, onConnError);
  }
  
  //succes
 function onConnect(){
 	document.getElementById("statusDiv").innerHTML = " Status: Connected";
-	document.getElementById("bleId").innerHTML = ConnDeviceId;
-	ble.startNotification(ConnDeviceId, blue.serviceUUID, blue.rxCharacteristic, onData, onError);
+	document.getElementById("bleId").innerHTML = deviceid;
+	ble.startNotification(deviceid, blue.serviceUUID, blue.rxCharacteristic, onData, onError);
 }
 
 //failure
@@ -119,7 +122,7 @@ function openBrowser(url) {
 
 function sendData() { // send data to Arduino
 	var data = stringToBytes(GemtInput.value)
-	ble.writeWithoutResponse(ConnDeviceId, blue.serviceUUID, blue.txCharacteristic, data, onSend, onError);
+	ble.writeWithoutResponse(deviceid, blue.serviceUUID, blue.txCharacteristic, data, onSend, onError);
 }
 	
 function onSend(){
@@ -128,7 +131,7 @@ function onSend(){
 
 
 function disconnect() {
-	ble.disconnect(ConnDeviceId, onDisconnect, onError);
+	ble.disconnect(deviceid, onDisconnect, onError);
 }
 
 function onDisconnect(){
