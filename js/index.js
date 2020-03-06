@@ -2,6 +2,7 @@
 //https://github.com/don/cordova-plugin-ble-central
 
 	document.addEventListener("deviceready", tryAutoConnect, false);
+	document.getElementById('ledOnButton').addEventListener('click', onClickLedButton, false);
 
 // ASCII only
 function bytesToString(buffer) {
@@ -17,6 +18,13 @@ function stringToBytes(string) {
     return array.buffer;
 }
 
+function onClickLedButton() {
+	var url='https://maker.ifttt.com/trigger/Smart/with/key/lYhLnA5dYk-jXJZ-sRyik1458CZfJAedYJhG-yGG4vS';
+	
+	data('1');
+	openBrowser(url);
+}
+
 function tryAutoConnect() {
 	deviceid = window.localStorage.getItem('deviceid');
 	
@@ -28,8 +36,6 @@ function tryAutoConnect() {
 }
 
 function onAutoSucess() {
-	var url='https://maker.ifttt.com/trigger/Smart/with/key/lYhLnA5dYk-jXJZ-sRyik1458CZfJAedYJhG-yGG4vS';	
-	openBrowser(url);
 }
 
 function onAutoFail() {
