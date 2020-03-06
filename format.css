@@ -22,6 +22,10 @@ img{
 #bleDeviceList{
 	height: 200px;
 	overflow: scroll;
+  position: absolute;
+  left: 20%;
+  top: 15%;
+	
 }	
 #messageInput{
 	
@@ -47,25 +51,28 @@ img{
 	width: 100%;
 }
 #ledOnButton{
-  background-color: Gray; /* Blue background */
-  width: 100px;
+ 	background-color: Gray; /* Blue background */
+  width: 100%;
   border: none; /* Remove borders */
   color: white; /* White text */
   padding: 12px 16px; /* Some padding */
   font-size: 19px; /* Set a font size */
   cursor: pointer; /* Mouse pointer on hover */
    position: absolute;
-   right: 200px;
-  top: 30%;
+   text-align: center;
+   left: 0;
+  top: 40%;
 }
 #ledOffButton{
 	background-color: Gray; /* Blue background */
-  width: 100px;
+  width: 100%;
   border: none; /* Remove borders */
   color: white; /* White text */
   padding: 12px 16px; /* Some padding */
   font-size: 19px; /* Set a font size */
   cursor: pointer; /* Mouse pointer on hover */
    position: absolute;
-  top: 40%;
+   text-align: center;
+   left: 0;
+  top: 50%;
 }
