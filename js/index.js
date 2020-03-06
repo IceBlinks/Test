@@ -21,7 +21,7 @@ function tryAutoConnect() {
 	//let deviceid = window.localStorage.getItem('deviceid');
 	
 	//if (deviceid !== null) {
-	ble.autoConnect('FC:25:D3:FB:C0:A1', onAutoSucess, onAutoFail);
+	ble.autoConnect('FC:25:D3:EB:C0:A1', onAutoSucess, onAutoFail);
 	}
 }
 
