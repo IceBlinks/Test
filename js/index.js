@@ -1,6 +1,7 @@
 // Based on an example:
 //https://github.com/don/cordova-plugin-ble-central
 
+	document.addEventListener("deviceready", tryAutoConnect, onDeviceReady, false);
 
 // ASCII only
 function bytesToString(buffer) {
@@ -47,7 +48,6 @@ var ConnDeviceId;
 var deviceList =[];
  
 function onLoad(){
-	document.addEventListener("deviceready", tryAutoConnect, onDeviceReady, false);
     bleDeviceList.addEventListener('click', conn, false); // assume not scrolling
 }
 
