@@ -20,7 +20,8 @@ img{
 }
 
 #bleDeviceList{
-	
+	height: 200px;
+	overflow: scroll;
 }	
 #messageInput{
 	
