@@ -2,11 +2,16 @@
 //https://github.com/don/cordova-plugin-ble-central
 
 	document.addEventListener("deviceready", tryAutoConnect, false);
-	document.getElementById('ledOnButton').addEventListener('click', onClickLedButton, false);
-
+	
+	document.addEventListener('DOMContentLoaded', onDomLoad);
 // ASCII only
 function bytesToString(buffer) {
     return String.fromCharCode.apply(null, new Uint8Array(buffer));
+}
+
+function onDomLoad() {
+	let ledBtn = document.getElementById("ledOnButton");
+	ledBtn.addEventListener('click', onClickLedButton);
 }
 
 // ASCII only
@@ -117,7 +122,6 @@ function onConnError(){
 function data(txt){
 	GemtInput.value = txt;
 	sendData();
-	
 }	
 
 function openBrowser(url) {
