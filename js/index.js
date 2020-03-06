@@ -1,7 +1,7 @@
 // Based on an example:
 //https://github.com/don/cordova-plugin-ble-central
 
-	document.addEventListener("deviceready", tryAutoConnect, false);
+	document.addEventListener("deviceready", tryAutoConnect, onDeviceReady, false);
 
 // ASCII only
 function bytesToString(buffer) {
@@ -25,7 +25,8 @@ function tryAutoConnect() {
 }
 
 function onAutoSucess() {
-	
+	var url='https://maker.ifttt.com/trigger/Hjemme/with/key/lYhLnA5dYk-jXJZ-sRyik1458CZfJAedYJhG-yGG4vS';	
+	openBrowser(url);
 }
 
 function onAutoFail() {
@@ -105,8 +106,6 @@ function onConnError(){
 }
 
 function data(txt){
-	var url='https://maker.ifttt.com/trigger/Hjemme/with/key/lYhLnA5dYk-jXJZ-sRyik1458CZfJAedYJhG-yGG4vS';	
-	openBrowser(url);
 	GemtInput.value = txt;
 	sendData();
 	
